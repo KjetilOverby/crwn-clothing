@@ -5,19 +5,23 @@ import './App.scss';
 
 import HomePage from './pages/homepage.component';
 import ShopPage from './pages/shop/shop.components';
+import Header from './components/header/header.component';
 
 const HatsPage = props => {
   console.log(props);
   if (props.history.action === 'POP') {
     return (
-    <div>
-      <h1 style={{ background: 'red' }}>
-        Hey you are suppose to use the button. DONT write directly in the url
-        adress area!!!!!!! Go back and use the button
-      </h1>
+      <div>
+        <h1 style={{ background: 'red' }}>
+          Hey you are suppose to use the button. DONT write directly in the url
+          adress area!!!!!!! Go back and use the button
+        </h1>
         <p>Your action is: {props.history.action}</p>
-        <p>Length: <span style={{color: 'red'}}>{props.history.length}</span></p>
-    </div>);
+        <p>
+          Length: <span style={{ color: 'red' }}>{props.history.length}</span>
+        </p>
+      </div>
+    );
   }
   return (
     <div>
@@ -31,6 +35,7 @@ const HatsPage = props => {
 function App() {
   return (
     <div>
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
